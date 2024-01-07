@@ -1,6 +1,6 @@
 import { Router } from "express";
 import UsersManager from "../dao/mongoManager/UserManager.js";
-import { hashPassword, comparePasswords } from "../utils/utils.js";
+import {hashPassword, comparePasswords, generateToken} from '../utils/utils.js';
 import passport from "passport";
 
 const userManager = new UsersManager()
@@ -69,7 +69,13 @@ usersRouter.post('/login', passport.authenticate('login', {failureRedirect:'/err
         req.session.last_name = req.user.last_name;
         req.session.age = req.user.age;
         req.session.role = req.user.role;
-        res.redirect('/products')
+        const token = generateToken(req.user)
+        res.cookie('token', token)
+        if(token){
+            res.redirect('/products')
+        }else{
+            res.json('error token')
+        }
     }
 )
 

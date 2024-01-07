@@ -69,6 +69,9 @@ viewsRouter.get('/carts/:cid', async (req, res) => {
     }
 })
 
+viewsRouter.get('/', (req, res)=>{
+    res.redirect('/login')
+})
 
 viewsRouter.get('/login', (req, res)=>{
     res.render('login')

@@ -4,6 +4,7 @@ import { productsRouter } from './routers/productsRouter.js'
 import { cartRouter } from './routers/cartRouter.js'
 import { usersRouter } from './routers/usersRouter.js'
 import { viewsRouter } from './routers/viewsRouter.js'
+import { sessionsRouter } from './routers/sessions.router.js'
 import { Server } from 'socket.io'
 import { messagesModel } from './dao/models/messages.model.js'
 import './dbConfig.js'
@@ -43,6 +44,8 @@ app.use('/', viewsRouter)
 app.use('/api/products', productsRouter)
 app.use('/api/carts', cartRouter)
 app.use('/api/users', usersRouter)
+app.use('api/sessions', sessionsRouter)
+
 
 
 const httpServer = app.listen(8080, () => {

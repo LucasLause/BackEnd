@@ -1,8 +1,12 @@
 import passport from "passport"
 import { Strategy as LocalStrategy } from "passport-local"
-import { hashPassword, comparePasswords } from "../utils/utils.js"
+import { hashPassword, comparePasswords, generateToken } from "../utils/utils.js"
 import { usersModel } from "../dao/models/users.model.js"
 import { Strategy as GitHubStrategy } from "passport-github2"
+import CartManager from "../dao/mongoManager/CartManager.js"
+import {ExtractJwt ,Strategy as jwtStrategy} from "passport-jwt"
+
+const cm = new CartManager()
 
 //passport local
 passport.use('registro', new LocalStrategy({
@@ -15,7 +19,8 @@ passport.use('registro', new LocalStrategy({
         return done(null, false)
     }
     const hasheo = await hashPassword(password)
-    const newUser = {...req.body, password:hasheo}
+    const newCart = await cm.addCart()
+    const newUser = {...req.body, password:hasheo, cart:newCart}
     //guardado del hash
     const newUserBD = await usersModel.create(newUser)
     done(null, newUserBD)
@@ -40,6 +45,7 @@ passport.use('login', new LocalStrategy({
             req.session.last_name = user.last_name;
             req.session.age = user.age;
             req.session.role = user.role;
+            console.log(user)
             return done(null, user)
         }
     }else{
@@ -72,6 +78,26 @@ passport.use('github', new GitHubStrategy({
     }
   }
 ))
+
+
+//passport jwt con token en cookies
+
+export const cookieExtractor = (req)=>{
+    const token = req?.cookies?.token
+    return token
+}
+
+passport.use('current', new jwtStrategy({
+    jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor]),
+    secretOrKey: 'secretJWT'
+}, async (jwtPayload, done)=>{
+    console.log('----jwtpayload----', jwtPayload);
+    if(jwtPayload.user){
+        done(null, jwtPayload.user)
+    }else{
+        done(null, false)
+    }
+}))
 
 
 
