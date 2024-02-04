@@ -1,0 +1,103 @@
+[
+    {
+        "id": 1,
+        "title": "Remera Linkin Park Meteora",
+        "description": "Remera Linkin Park Manga Larga Meteora",
+        "price": 5500,
+        "code": "abc123",
+        "stock": 25,
+        "status": true,
+        "category": "remera"
+    },
+    {
+        "id": 2,
+        "title": "Remera Linkin Park Meteora 20 años",
+        "description": "Remera Linkin Park Meteora 20 años edición aniversario",
+        "code": "abc1234",
+        "price": 8000,
+        "status": true,
+        "stock": 25,
+        "category": "remera",
+        "thumbnail": [
+            "../../img/merch/remera2.webp"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Buzo Linkin Park",
+        "description": "Buzo Linkin Park Color Negro",
+        "code": "abc12345",
+        "price": 10000,
+        "status": true,
+        "stock": 25,
+        "category": "buzo",
+        "thumbnail": [
+            "../../img/merch/buzo1.webp"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Buzo Linkin Park Con Capucha",
+        "description": "Buzo Linkin Park Con Capucha Color Negro y Azul",
+        "code": "abc123456",
+        "price": 11000,
+        "status": true,
+        "stock": 25,
+        "category": "buzo",
+        "thumbnail": [
+            "../../img/merch/buzo2.webp"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Vinilo Hibryd Theory Linkin Park",
+        "description": "Vinilo Hibryd Theory Linkin Park 2000",
+        "code": "abc1234567",
+        "price": 5000,
+        "status": true,
+        "stock": 25,
+        "category": "vinilo",
+        "thumbnail": [
+            "../../img/merch/vinilo1.jpg"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Vinilo Meteora Linkin Park",
+        "description": "Vinilo Meteora Linkin Park 2003",
+        "code": "abc12345678",
+        "price": 5500,
+        "status": true,
+        "stock": 25,
+        "category": "vinilo",
+        "thumbnail": [
+            "../../img/merch/vinilo2.webp"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Collar Linkin Park Estilo Militar",
+        "description": "Collar Linkin Park Estilo Militar Color Plateado",
+        "code": "abc123456789",
+        "price": 1000,
+        "status": true,
+        "stock": 25,
+        "category": "collar",
+        "thumbnail": [
+            "../../img/merch/collar1.webp"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Collar Linkin Park Púa",
+        "description": "Collar Linkin Park Púa Blanco o Negro",
+        "code": "abc1234567890",
+        "price": 1000,
+        "status": true,
+        "stock": 25,
+        "category": "collar",
+        "thumbnail": [
+            "../../img/merch/collar2.jpg"
+        ]
+    }
+]
